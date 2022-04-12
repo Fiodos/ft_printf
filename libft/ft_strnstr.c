@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:00:50 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/02 11:23:00 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:59:06 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

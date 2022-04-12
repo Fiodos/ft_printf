@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:00:40 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/07 14:24:42 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:59:01 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

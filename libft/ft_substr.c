@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:01:02 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/07 15:06:00 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:59:14 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

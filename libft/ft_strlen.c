@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:00:35 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/02 11:14:13 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:58:59 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 size_t	ft_strlen(const char *s)
 {

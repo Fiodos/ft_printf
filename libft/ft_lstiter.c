@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:37:52 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/07 10:16:56 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:57:40 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

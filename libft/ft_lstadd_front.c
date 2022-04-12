@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 13:25:34 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/02 11:13:13 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:57:33 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

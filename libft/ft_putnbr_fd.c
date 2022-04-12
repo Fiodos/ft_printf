@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:57:39 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/02 11:13:45 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 17:45:12 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

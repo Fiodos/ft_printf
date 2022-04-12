@@ -6,12 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 16:51:31 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/07 15:15:13 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:58:08 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
+#include "../h_files/libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -41,6 +40,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (start);
 }
 
+// #include <stdio.h>
 // int main()
 // {
 // 	t_list	*n1 = ft_lstnew("m1");

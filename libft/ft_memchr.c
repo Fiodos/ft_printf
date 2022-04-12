@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:58:59 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/02 11:13:32 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 13:58:17 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../h_files/libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

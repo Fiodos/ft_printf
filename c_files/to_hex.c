@@ -6,37 +6,12 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:13:12 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/11 15:04:16 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:36:28 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-
-char	*init_base(char *dst, char *src)
-{
-	int	i;
-
-	dst = malloc(sizeof(char) * 17);
-	i = 0;
-	while (i < 16)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	int	len;
-
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
-}
+#include "../h_files/ft_printf.h"
+#include "../h_files/libft.h"
 
 static char	*rev_str(char *str)
 {
@@ -57,17 +32,19 @@ static char	*rev_str(char *str)
 	return (str);
 }
 
-char	*to_hex(int	num)
+int	to_hex(long long int num, char *hex, int x)
 {
-	char	*base;
-	char	*hex;
-	int		result;
-	int		i;
+	char				*base;
+	long long int		result;
+	long long int		i;
 
-	base = init_base(base, "0123456789ABCDEF");
+	base = malloc(sizeof(char) * 10);
+	if (x == 'x')
+		base = ft_strcpy(base, "0123456789abcdef");
+	else
+		base = ft_strcpy(base, "0123456789ABCDEF");
 	result = 1;
 	i = 0;
-	hex = malloc(16 * sizeof(char));
 	while (num > 0)
 	{
 		result = num % 16;
@@ -75,14 +52,8 @@ char	*to_hex(int	num)
 		i++;
 		num = num / 16;
 	}
+	free(base);
+	base = NULL;
 	hex = rev_str(hex);
-	return (hex);
-}
-
-int main()
-{
-	int		n = 65;
-	char	*result = to_hex(n);
-	printf("%s\n", result);
-	return (0);
+	return (i);
 }

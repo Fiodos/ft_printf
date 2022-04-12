@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 11:36:09 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/11 12:54:11 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/12 10:12:50 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/12 13:55:33 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../h_files/ft_printf.h"
+#include "../h_files/libft.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include "libft.h"
+char	*ft_strcpy(char *dst, char *src)
+{
+	int	i;
+	int	len;
 
-int		ft_printf(const char *, ...);
-
-void	ft_printf_c(va_list args);
-
-void	ft_printf_s(va_list args);
-#endif
+	len = ft_strlen(src);
+	dst = malloc(sizeof(char) * len);
+	i = 0;
+	while (i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
