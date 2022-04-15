@@ -6,12 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:13:12 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 16:36:28 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 16:05:28 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
 static char	*rev_str(char *str)
 {
@@ -32,19 +31,21 @@ static char	*rev_str(char *str)
 	return (str);
 }
 
-int	to_hex(long long int num, char *hex, int x)
+int	to_hex(unsigned long num, char *hex, int x)
 {
-	char				*base;
-	long long int		result;
-	long long int		i;
+	char	*base;
+	int		result;
+	int		i;
 
-	base = malloc(sizeof(char) * 10);
+	base = malloc(sizeof(char) * 18);
 	if (x == 'x')
 		base = ft_strcpy(base, "0123456789abcdef");
 	else
 		base = ft_strcpy(base, "0123456789ABCDEF");
 	result = 1;
 	i = 0;
+	if (num == 0)
+		hex[i++] = '0';
 	while (num > 0)
 	{
 		result = num % 16;
@@ -52,6 +53,7 @@ int	to_hex(long long int num, char *hex, int x)
 		i++;
 		num = num / 16;
 	}
+	hex[i] = '\0';
 	free(base);
 	base = NULL;
 	hex = rev_str(hex);

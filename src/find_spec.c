@@ -6,12 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:55:53 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 16:58:08 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 14:35:30 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
 int	find_spec(char c, va_list args)
 {
@@ -32,6 +31,9 @@ int	find_spec(char c, va_list args)
 	if (c == 'X')
 		return (ft_printf_hexa(args, 'X'));
 	if (c == '%')
+	{
 		ft_putchar_fd('%', 1);
+		return (1);
+	}
 	return (0);
 }

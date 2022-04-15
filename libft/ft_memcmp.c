@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 14:59:02 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 13:58:19 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 12:10:47 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/libft.h"
+#include "../lib/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

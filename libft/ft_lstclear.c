@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 15:33:31 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 13:57:35 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 12:10:21 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/libft.h"
+#include "../lib/libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

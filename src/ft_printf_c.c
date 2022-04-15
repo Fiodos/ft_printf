@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hexa.c                                   :+:      :+:    :+:   */
+/*   ft_printf_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 16:12:46 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 16:32:40 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/11 11:48:06 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/14 14:35:34 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
-int	ft_printf_hexa(va_list args, int x)
+int	ft_printf_c(va_list args)
 {
-	long long int	num;
-	char			*hex;
-	int				result;
+	char	c;
 
-	hex = malloc(sizeof(char) * 19);
-	num = va_arg(args, long long int);
-	if (x == 'x')
-		result = to_hex(num, hex, 'x');
-	else
-		result = to_hex(num, hex, 'X');
-	ft_putstr_fd(hex, 1);
-	free(hex);
-	hex = 0;
-	return (result);
+	c = (char) va_arg(args, int);
+	ft_putchar_fd(c, 1);
+	return (1);
 }

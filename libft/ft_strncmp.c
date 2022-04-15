@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:00:44 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 13:59:04 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 12:11:44 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/libft.h"
+#include "../lib/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

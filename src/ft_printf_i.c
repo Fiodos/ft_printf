@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_printf_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/12 10:12:50 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 13:55:33 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/11 13:02:26 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/14 14:35:44 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
-char	*ft_strcpy(char *dst, char *src)
+int	ft_printf_i(va_list args)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
+	char	*num;
 
-	len = ft_strlen(src);
-	dst = malloc(sizeof(char) * len);
-	i = 0;
-	while (i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	i = va_arg(args, int);
+	num = ft_itoa(i);
+	len = ft_strlen(num);
+	ft_putstr_fd(num, 1);
+	free(num);
+	num = NULL;
+	return (len);
 }

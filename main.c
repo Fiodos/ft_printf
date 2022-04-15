@@ -6,30 +6,45 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:49:11 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 18:23:45 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 18:14:10 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "h_files/ft_printf.h"
+#include <unistd.h>
+#include "lib/ft_printf.h"
+
+void	ptest_c(void)
+{
+	char	*s = "Huhu";
+	printf("%s", s);
+}
+void	ftest_c(void)
+{
+	char	*s = "Huhu";
+	ft_printf("%s", s);
+}
+
 int main()
 {
-	// char	c = 'A';
-	// char	*s = NULL;
-	unsigned int		*ptr;
-	unsigned int		d = -11;
-	ptr = &d;
-	// char *hex = malloc(sizeof(char) * 19);
-	// ft_printf("lowercase hexa: %x\n", d);
-	// ft_printf("uppercase hexa: %X\n", d);
-	// ft_printf("decimal number: %d\n", d);
-	// ft_printf("string: %s\n", s);
-	// ft_printf("character: %c\n", c);
-	// ft_printf("pointer address: %p\n", ptr);
-	// int	result = ft_printf("Hey %s\n", s);
-	// long long int test = 1407328332168;
-	int result2 = printf("%p\n", ptr);
-	ft_printf("%p\n", ptr);
-	printf("%d\n", result2);
+	int id = fork();
+	if (id == 0)
+	{
+		FILE *a1 = fopen("a1", "w");
+		int a1_fd = fileno(a1);
+		dup2(a1_fd, STDOUT_FILENO); // fd: 1 is now a1;
+		close(a1_fd);
+		//ft_printf("This should print into file a1!");
+		ftest_c();
+	}
+	else
+	{
+		FILE *a2 = fopen("a2", "w");
+		int a2_fd = fileno(a2);
+		dup2(a2_fd, STDOUT_FILENO);
+		close(a2_fd);
+		// ft_printf("This should print into file a2!");
+		ptest_c();
+	}
 	return (0);
 }

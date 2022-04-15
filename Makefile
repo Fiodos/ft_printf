@@ -6,7 +6,7 @@
 #    By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 10:14:19 by fyuzhyk           #+#    #+#              #
-#    Updated: 2022/04/12 14:54:36 by fyuzhyk          ###   ########.fr        #
+#    Updated: 2022/04/14 12:14:46 by fyuzhyk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = $(OBJ_DIR)/libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_DIR = c_files
+SRC_DIR = src
 LIBFT_DIR = libft
 OBJ_DIR = .
 

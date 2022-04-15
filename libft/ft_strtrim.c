@@ -6,11 +6,11 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:00:59 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 13:59:11 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/04/14 12:11:53 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/libft.h"
+#include "../lib/libft.h"
 
 static int	get_start(char const *s1, char const *set)
 {

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_p.c                                      :+:      :+:    :+:   */
+/*   ft_printf_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 12:56:10 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 16:33:43 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/11 13:04:36 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/14 14:35:52 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
-int	ft_printf_p(va_list args)
+int	ft_printf_u(va_list args)
 {
-	long long int	ptr;
-	char			*hex;
-	int				result;
+	long int		i;
+	unsigned int	u;
+	char			*num;
+	int				len;
 
-	hex = malloc(sizeof(char) * 19);
-	ptr = va_arg(args, long long int);
-	result = to_hex(ptr, hex, 'x');
-	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(hex, 1);
-	free(hex);
-	hex = NULL;
-	return (result + 2);
+	i = va_arg(args, long int);
+	if (i < 0)
+		u = 4294967295 - i;
+	u = i;
+	num = ft_uint_itoa(u);
+	len = ft_strlen(num);
+	ft_putstr_fd(num, 1);
+	free(num);
+	num = NULL;
+	return (len);
 }

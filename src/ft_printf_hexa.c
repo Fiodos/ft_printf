@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_u.c                                      :+:      :+:    :+:   */
+/*   ft_printf_hexa.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 13:04:36 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 17:44:53 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/11 16:12:46 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/14 14:35:41 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
-#include <stdio.h>
-int	ft_printf_u(va_list args)
+int	ft_printf_hexa(va_list args, int x)
 {
-	unsigned int	u;
-	char			*num;
-	int				len;
+	long	num;
+	char	*hex;
+	int		result;
 
-	u = va_arg(args, unsigned int);
-	if (u < 0)
-		ft_putnbr_fd(u, 1);
-		return (0);
-	num = ft_itoa(u);
-	len = ft_strlen(num);
-
-	ft_putstr_fd(num, 1);
-	free(num);
-	num = NULL;
-	return (len);
+	hex = malloc(sizeof(char) * 19);
+	num = va_arg(args, long);
+	if (x == 'x')
+		result = to_hex(num, hex, 'x');
+	else
+		result = to_hex(num, hex, 'X');
+	ft_putstr_fd(hex, 1);
+	free(hex);
+	hex = 0;
+	return (result);
 }

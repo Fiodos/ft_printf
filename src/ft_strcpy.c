@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_s.c                                      :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 12:51:41 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 17:19:15 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/12 10:12:50 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/14 14:35:57 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
-int	ft_printf_s(va_list args)
+char	*ft_strcpy(char *dst, char *src)
 {
-	char	*s;
-	int		len;
+	int	i;
+	int	len;
 
-	s = va_arg(args, char *);
-	if (s == NULL)
+	len = ft_strlen(src);
+	i = 0;
+	while (i < len)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
+		dst[i] = src[i];
+		i++;
 	}
-	len = ft_strlen(s);
-	ft_putstr_fd(s, 1);
-	return (len);
+	dst[i] = '\0';
+	return (dst);
 }

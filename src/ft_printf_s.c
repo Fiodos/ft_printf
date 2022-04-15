@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_d.c                                      :+:      :+:    :+:   */
+/*   ft_printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 12:57:58 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/12 16:32:11 by fyuzhyk          ###   ########.fr       */
+/*   Created: 2022/04/11 12:51:41 by fyuzhyk           #+#    #+#             */
+/*   Updated: 2022/04/14 14:35:51 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../h_files/ft_printf.h"
-#include "../h_files/libft.h"
+#include "../lib/ft_printf.h"
 
-int	ft_printf_d(va_list args)
+int	ft_printf_s(va_list args)
 {
-	int		d;
+	char	*s;
 	int		len;
-	char	*num;
 
-	d = va_arg(args, int);
-	num = ft_itoa(d);
-	len = ft_strlen(num);
-	
-	ft_putstr_fd(num, 1);
-	free(num);
-	num = NULL;
+	s = va_arg(args, char *);
+	if (s == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	len = ft_strlen(s);
+	ft_putstr_fd(s, 1);
 	return (len);
 }
