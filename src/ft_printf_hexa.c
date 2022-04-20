@@ -14,12 +14,12 @@
 
 int	ft_printf_hexa(va_list args, int x)
 {
-	long	num;
+	unsigned long	num;
 	char	*hex;
 	int		result;
 
 	hex = malloc(sizeof(char) * 19);
-	num = va_arg(args, long);
+	num = va_arg(args, unsigned long);
 	if (x == 'x')
 		result = to_hex(num, hex, 'x');
 	else

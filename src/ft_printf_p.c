@@ -15,12 +15,12 @@
 int	ft_printf_p(va_list args)
 {
 	unsigned long	ptr;
-	char	*hex;
-	int		result;
+	char			*hex;
+	int				result;
 
 	hex = malloc(sizeof(char) * 19);
 	ptr = va_arg(args, unsigned long);
-	result = to_hex(ptr, hex, 'x');
+	result = to_hexp(ptr, hex, 'x');
 	ft_putstr_fd("0x", 1);
 	ft_putstr_fd(hex, 1);
 	free(hex);

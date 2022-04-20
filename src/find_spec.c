@@ -18,22 +18,15 @@ int	find_spec(char c, va_list args)
 		return (ft_printf_c(args));
 	if (c == 's')
 		return (ft_printf_s(args));
-	if (c == 'p')
-		return (ft_printf_p(args));
-	if (c == 'd')
-		return (ft_printf_d(args));
-	if (c == 'i')
+	if (c == 'd' || c == 'i')
 		return (ft_printf_i(args));
 	if (c == 'u')
 		return (ft_printf_u(args));
+	if (c == 'p')
+		return (ft_printf_p(args));
 	if (c == 'x')
 		return (ft_printf_hexa(args, 'x'));
 	if (c == 'X')
 		return (ft_printf_hexa(args, 'X'));
-	if (c == '%')
-	{
-		ft_putchar_fd('%', 1);
-		return (1);
-	}
 	return (0);
 }

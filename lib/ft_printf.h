@@ -22,7 +22,7 @@ int		ft_printf_c(va_list args);
 
 int		ft_printf_s(va_list args);
 
-int		ft_printf_d(va_list args);
+void	ft_putchar(char c, int *result);
 
 int		ft_printf_i(va_list args);
 
@@ -30,9 +30,9 @@ int		ft_printf_p(va_list args);
 
 int		ft_printf_u(va_list args);
 
-int		ft_printf_percent(va_list args);
+int		to_hex(unsigned int num, char *hex, int x);
 
-int		to_hex(unsigned long num, char *hex, int x);
+int		to_hexp(unsigned long num, char *hex, int x);
 
 char	*ft_strcpy(char *dst, char *src);
 

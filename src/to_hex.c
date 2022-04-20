@@ -31,7 +31,36 @@ static char	*rev_str(char *str)
 	return (str);
 }
 
-int	to_hex(unsigned long num, char *hex, int x)
+int	to_hex(unsigned int num, char *hex, int x)
+{
+	char	*base;
+	int		result;
+	int		i;
+
+	base = malloc(sizeof(char) * 18);
+	if (x == 'x')
+		base = ft_strcpy(base, "0123456789abcdef");
+	else
+		base = ft_strcpy(base, "0123456789ABCDEF");
+	result = 1;
+	i = 0;
+	if (num == 0)
+		hex[i++] = '0';
+	while (num > 0)
+	{
+		result = num % 16;
+		hex[i] = base[result];
+		i++;
+		num = num / 16;
+	}
+	hex[i] = '\0';
+	free(base);
+	base = NULL;
+	hex = rev_str(hex);
+	return (i);
+}
+
+int	to_hexp(unsigned long num, char *hex, int x)
 {
 	char	*base;
 	int		result;

@@ -18,21 +18,23 @@ int	ft_printf(const char *format, ...)
 	int		result;
 	va_list	args;
 
+	va_start(args, format);
 	i = 0;
 	result = 0;
-	va_start(args, format);
-	while ((unsigned long)i < ft_strlen(format))
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			result += find_spec(format[i], args);
+			if (format[++i] == '%')
+				ft_putchar('%', &result);
+			else
+			{
+				result += find_spec(format[i], args);
+				va_arg(args, void *);
+			}
 		}
 		else
-		{
-			ft_putchar_fd(format[i], 1);
-			result++;
-		}
+			ft_putchar(format[i], &result);
 		i++;
 	}
 	va_end(args);
