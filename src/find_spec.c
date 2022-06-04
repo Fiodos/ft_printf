@@ -6,13 +6,13 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:55:53 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/14 14:35:30 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:36:00 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/ft_printf.h"
 
-int	find_spec(char c, va_list args)
+int	find_spec(char c, va_list *args)
 {
 	if (c == 'c')
 		return (ft_printf_c(args));

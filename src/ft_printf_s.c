@@ -6,18 +6,18 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 12:51:41 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/14 14:35:51 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:34:25 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/ft_printf.h"
 
-int	ft_printf_s(va_list args)
+int	ft_printf_s(va_list *args)
 {
 	char	*s;
 	int		len;
 
-	s = va_arg(args, char *);
+	s = va_arg(*args, char *);
 	if (s == NULL)
 	{
 		ft_putstr_fd("(null)", 1);

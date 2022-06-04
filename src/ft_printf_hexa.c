@@ -6,20 +6,20 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 16:12:46 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/14 14:35:41 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:34:01 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/ft_printf.h"
 
-int	ft_printf_hexa(va_list args, int x)
+int	ft_printf_hexa(va_list *args, int x)
 {
 	unsigned long	num;
-	char	*hex;
-	int		result;
+	char			*hex;
+	int				result;
 
 	hex = malloc(sizeof(char) * 19);
-	num = va_arg(args, unsigned long);
+	num = va_arg(*args, unsigned long);
 	if (x == 'x')
 		result = to_hex(num, hex, 'x');
 	else
