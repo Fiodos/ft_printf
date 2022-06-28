@@ -6,7 +6,7 @@
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 11:36:09 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/06/04 16:35:23 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/06/28 12:18:50 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,6 @@ int		ft_printf_hexa(va_list *args, int x);
 int		find_spec(char c, va_list *args);
 
 char	*ft_uint_itoa(unsigned int n);
+
+char	*rev_str(char *str);
 #endif

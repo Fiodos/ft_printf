@@ -6,7 +6,7 @@
 #    By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/12 10:14:19 by fyuzhyk           #+#    #+#              #
-#    Updated: 2022/04/14 12:14:46 by fyuzhyk          ###   ########.fr        #
+#    Updated: 2022/06/25 11:44:19 by fyuzhyk          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,14 +25,16 @@ OBJ_LIBFT = $(SRC_LIBFT:$(LIBFT_DIR)/%.c=$(LIBFT_DIR)/%.o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) $(OBJ_LIBFT)
-	ar rc $(NAME) $(OBJ) $(OBJ_LIBFT)
+$(NAME) : $(OBJ)
+	Make -C ./libft
+	cp ./libft/libft.a $(NAME)
+	ar rc $(NAME) $(OBJ)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) libft/libft.a
 
 clean:
 	rm -f $(OBJ) $(OBJ_LIBFT)

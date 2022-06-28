@@ -1,47 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_hex.c                                           :+:      :+:    :+:   */
+/*   hexa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 13:13:12 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/04/14 16:05:28 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/06/28 12:17:50 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/ft_printf.h"
 
-static char	*rev_str(char *str)
+char	get_hex(int	result, char base)
 {
-	char	temp;
-	int		i;
-	int		len;
-
-	i = 0;
-	len = ft_strlen(str) - 1;
-	while (i < len)
-	{
-		temp = str[i];
-		str[i] = str[len];
-		str[len] = temp;
-		i++;
-		len--;
-	}
-	return (str);
+	if (base == 'x')
+		return ("0123456789abcdef"[result]);
+	else
+		return ("0123456789ABCDEF"[result]);
 }
 
 int	to_hex(unsigned int num, char *hex, int x)
 {
-	char	*base;
 	int		result;
 	int		i;
 
-	base = malloc(sizeof(char) * 18);
-	if (x == 'x')
-		base = ft_strcpy(base, "0123456789abcdef");
-	else
-		base = ft_strcpy(base, "0123456789ABCDEF");
 	result = 1;
 	i = 0;
 	if (num == 0)
@@ -49,28 +32,20 @@ int	to_hex(unsigned int num, char *hex, int x)
 	while (num > 0)
 	{
 		result = num % 16;
-		hex[i] = base[result];
+		hex[i] = get_hex(result, x);
 		i++;
 		num = num / 16;
 	}
 	hex[i] = '\0';
-	free(base);
-	base = NULL;
 	hex = rev_str(hex);
 	return (i);
 }
 
 int	to_hexp(unsigned long num, char *hex, int x)
 {
-	char	*base;
 	int		result;
 	int		i;
 
-	base = malloc(sizeof(char) * 18);
-	if (x == 'x')
-		base = ft_strcpy(base, "0123456789abcdef");
-	else
-		base = ft_strcpy(base, "0123456789ABCDEF");
 	result = 1;
 	i = 0;
 	if (num == 0)
@@ -78,13 +53,45 @@ int	to_hexp(unsigned long num, char *hex, int x)
 	while (num > 0)
 	{
 		result = num % 16;
-		hex[i] = base[result];
+		hex[i] = get_hex(result, x);
 		i++;
 		num = num / 16;
 	}
 	hex[i] = '\0';
-	free(base);
-	base = NULL;
 	hex = rev_str(hex);
 	return (i);
+}
+
+int	ft_printf_hexa(va_list *args, int x)
+{
+	unsigned long	num;
+	char			*hex;
+	int				result;
+
+	hex = malloc(sizeof(char) * 19);
+	num = va_arg(*args, unsigned long);
+	if (x == 'x')
+		result = to_hex(num, hex, 'x');
+	else
+		result = to_hex(num, hex, 'X');
+	ft_putstr_fd(hex, 1);
+	free(hex);
+	hex = 0;
+	return (result);
+}
+
+int	ft_printf_p(va_list *args)
+{
+	unsigned long	ptr;
+	char			*hex;
+	int				result;
+
+	hex = malloc(sizeof(char) * 19);
+	ptr = va_arg(*args, unsigned long);
+	result = to_hexp(ptr, hex, 'x');
+	ft_putstr_fd("0x", 1);
+	ft_putstr_fd(hex, 1);
+	free(hex);
+	hex = NULL;
+	return (result + 2);
 }

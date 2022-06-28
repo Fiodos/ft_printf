@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_spec.c                                        :+:      :+:    :+:   */
+/*   helper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fyuzhyk <fyuzhyk@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 09:55:53 by fyuzhyk           #+#    #+#             */
-/*   Updated: 2022/06/04 16:36:00 by fyuzhyk          ###   ########.fr       */
+/*   Updated: 2022/06/28 12:18:21 by fyuzhyk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,48 @@ int	find_spec(char c, va_list *args)
 		return (ft_printf_u(args));
 	if (c == 'p')
 		return (ft_printf_p(args));
-	if (c == 'x')
-		return (ft_printf_hexa(args, 'x'));
-	if (c == 'X')
-		return (ft_printf_hexa(args, 'X'));
+	if (c == 'x' || c == 'X')
+		return (ft_printf_hexa(args, c));
 	return (0);
+}
+
+char	*ft_strcpy(char *dst, char *src)
+{
+	int	i;
+	int	len;
+
+	len = ft_strlen(src);
+	i = 0;
+	while (i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+char	*rev_str(char *str)
+{
+	char	temp;
+	int		i;
+	int		len;
+
+	i = 0;
+	len = ft_strlen(str) - 1;
+	while (i < len)
+	{
+		temp = str[i];
+		str[i] = str[len];
+		str[len] = temp;
+		i++;
+		len--;
+	}
+	return (str);
+}
+
+void	ft_putchar(char c, int *result)
+{
+	write(1, &c, 1);
+	(*result)++;
 }
